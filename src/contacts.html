@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  @@include('html/head.html',{ "title":"Контакти" })
+  <body>
+    <div class="wrapper">
+      @@include('html/header.html',{})
+      <main class="main">
+        <section class="page tabs-page">
+          <div class="container">
+            <div class="page__content">
+              <h1>Оберіть зручний спосіб звязку</h1>
+              <div class="page__wrapper">
+                <div class="page__item active">
+                  <div class="page__item--tab">Зв'язок</div>
+                  <div class="page__item--content item-content">
+                    <h2 class="center">Зв'язок</h2>
+                  </div>
+                </div>
+                <div class="page__item">
+                  <div class="page__item--tab">Адреса</div>
+                  <div class="page__item--content item-content">
+                    <h2 class="center">Адреса</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      @@include('html/footer.html',{})
+    </div>
+
+    <script src="js/app.min.js"></script>
+  </body>
+</html>
