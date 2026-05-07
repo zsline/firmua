@@ -687,6 +687,7 @@ ul{
         color: #424242;
         transition: all 0.2s;
         pointer-events: none;
+        height: 0;
         
     }
     .page__item.active .page__item--content{
@@ -694,6 +695,7 @@ ul{
         padding: 24px clamp(1rem, calc(0.66rem + 1.71vw), 1.88rem) 12px;
         max-height: calc(100vh - 240px);
         min-height: 110%;
+        height: auto;
         overflow-y: auto;
         opacity: 1;
         pointer-events: visible;
@@ -746,6 +748,9 @@ ul{
         border-bottom-left-radius:12px;
         border-bottom-left-radius: 12px;
     }
+        .page__item.active .page__item--content{
+        max-height: 100% !important;
+        }
 }
 /* ========== END PAGES =========== */
 /* slider */
