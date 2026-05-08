@@ -1614,6 +1614,45 @@ li[data-phone="vodafone"]::before{
         }
     }
 }
+@media (max-width:1200px) {
+    .item-content__contacts--item:first-child{
+        padding-right: 5% !important;
+    }
+    .item-content__contacts--item:last-child{
+        padding-left: 5% !important;
+    }
+}
+@media (max-width:746px) {
+    .item-content__contacts, .item-content__office{
+        flex-direction: column;
+        align-items: center;
+    }
+    .item-content__wrapper .item-content__contacts--item{
+        width: 100%;
+    }
+    .item-content__contacts--item:first-child{
+        padding-right: 0 !important;
+        margin-bottom: 24px;
+    }
+    .item-content__contacts--item:last-child{
+        padding-left: 0 !important;
+    }
+    .item-content__contacts--item::after{
+        display: none;
+    }
+    .item-content__chats{
+        justify-content: space-around;
+    }
+    .item-content__chat{
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+    }
+    .item-content__chat--qr{
+        display: none;
+    }
+}
 /* end content chat block */
 
 /* ============ HOME =============== */
