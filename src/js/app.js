@@ -2,6 +2,7 @@
 import { homeModal } from "./modals/home-modal.js";
 import { tabs } from "./particals/tabs.js";
 import { sliders } from "./particals/sliders.js";
+import { timer } from "./particals/timer.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     if(document.querySelector('.hero-home')){
@@ -29,6 +30,7 @@ if(openMenu && menuMobile && closeMenu){
         menuMobile.classList.remove('open');
     });
 }
+
 
 
 
