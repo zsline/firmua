@@ -1,13 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-@@include('html/head.html',{
-    "title":"Главная"
-})
-<body>
+  @@include('html/head.html',{ "title":"Главная" })
+  <body>
     <div class="wrapper">
-        @@include('html/header-home.html',{})
-     <main class="main">
+      @@include('html/header-home.html',{})
+      <main class="main">
         <section class="hero hero-home">
           <div class="container">
             <div class="hero-home__img">
@@ -20,9 +17,69 @@
                   <div class="box-item__title">ОТРИМАТИ ЗНАННЯ</div>
                   <div class="box-item__tabs">
                     <ul>
-                      <li data-title="блог">блог</li>
-                      <li data-title="курси">курси</li>
-                      <li data-title="вебінари">вебінари</li>
+                      <li data-title="блог">
+                        блог
+                        <div class="box-item__list">
+                          <ul>
+                            <li>
+                              <a href="services.html">Бізнес "під ключ"</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Готові підприємства</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Реєстрація ТОВ</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Реєстрація ФОП</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Реєстрація ОСББ</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Реєстрація ЖБК</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Інші форми</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Реєстрація змін</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li data-title="курси">
+                        курси
+                        <div class="box-item__list">
+                          <ul>
+                            <li>
+                              <a href="services.html">Юридичні адреси"</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Бренд-неймінг</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Номінальний директор</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li data-title="вебінари">
+                        вебінари
+                        <div class="box-item__list">
+                          <ul>
+                            <li>
+                              <a href="services.html">Отримання ліцензії"</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Дозволи</a>
+                            </li>
+                            <li>
+                              <a href="services.html">Сертифікація</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -137,15 +194,17 @@
                 <div class="home-modal__content--title">
                   Що саме вас цікавить?
                 </div>
-                <div class="home-modal__inner"></div>
+                <div class="home-modal__content--wrapper">
+                  <div class="home-modal__inner"></div>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
-        @@include('html/footer.html',{}) 
+      @@include('html/footer.html',{})
     </div>
 
     <script src="js/app.min.js"></script>
-</body>
+  </body>
 </html>

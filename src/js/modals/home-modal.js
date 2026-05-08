@@ -6,7 +6,7 @@ const modal = document.querySelector('.home-modal');
 const modalBoxes = document.querySelectorAll('.box-item');
 const modalInner = document.querySelector('.home-modal__inner');
 const modalClose = document.querySelector('.home-modal__close');
-
+const modalContent = document.querySelector('.home-modal__content');
 
 
 export function homeModal(){
@@ -14,7 +14,11 @@ export function homeModal(){
         modalBoxes.forEach(el => {
             el.addEventListener('click', (e) => {
                 modal.classList.add('open');
-                    createInner(el, e);
+                if(e.target.tagName == 'LI'){
+                    createCatList(el, e)     
+                } else {
+                    createList(el);
+                }
             });
             modalClose.addEventListener('click', ()=>{
                 modal.classList.remove('open');
@@ -23,32 +27,42 @@ export function homeModal(){
     }
 }
 
-function createInner(el, e) {
+function createCatList(el, e){
     modalInner.innerHTML = '';
-    let title = '';
-    if(e.target.tagName !== 'LI'){
-        createList(el);
-        return;
-    } else {
-        title = e.target.innerText;
+    modalContent.querySelectorAll('.box-item__list').forEach(el => {
+        el.remove();
+    });
+    const currentLi = e.target.closest('li');
+    const title = currentLi.dataset.title;
+    const div = document.createElement('div');
+    div.className = 'home-modal__inner--title';
+    div.textContent = aux.sentenceCase(title);
+    modalInner.appendChild(div);
+    const list = currentLi.querySelector('.box-item__list');
+    if(list){
+        modalContent.appendChild(list.cloneNode(true));
     }
-        const div = document.createElement('div');
-        div.className = 'home-modal__inner--title';
-        div.textContent = aux.sentenceCase(title);
-        modalInner.appendChild(div);
 }
 
 function createList(el) {
     modalInner.innerHTML = '';
+        modalContent.querySelectorAll('.box-item__list').forEach(el => {
+        el.remove();
+    });
     const listTitles = el.querySelectorAll('li');
     listTitles.forEach(title => {
-        let html = `
-        <div class="home-modal__inner--item">
-            <div class="home-modal__inner--title">
+        const servicesList = title.querySelector('.box-item__list');
+        let html = '';
+        if(title.querySelector('.box-item__list')){
+            html = `
+            <div class="home-modal__inner--item">
+                <div class="home-modal__inner--title">
                 ${title.innerText}
+                </div>
+                ${servicesList.innerHTML}
             </div>
-        </div>
-        `;
+            `;
+        }
         modalInner.insertAdjacentHTML('beforeend', html);
     });
 }

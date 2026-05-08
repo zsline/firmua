@@ -184,6 +184,9 @@ ul{
     cursor: pointer;
     width: calc(100% / 3 - 20px);
     margin-bottom: clamp(1rem, calc(0.46rem + 2.7vw), 2.5rem);
+    &__list{
+        display: none;
+    }
 }
 .box-item__tabs{
     padding-top: 11px;
@@ -350,6 +353,28 @@ ul{
         padding: 18px;
         background-color: var(--bg-color);
         border-radius: var(--radius);
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li{
+                margin-bottom: 4px;
+                a{
+                    display: block;
+                    padding: 4px;
+                    border-radius: 5px;
+                    background-color: transparent;
+                    white-space: nowrap;
+                    &:hover{
+                        background-color: var(--grey-color);
+                    }
+                }
+            }
+        }
+        .box-item__list{
+                display: block;
+                text-align: left;
+            }
         .home-modal__content--title{
             font-size: 20px;
             font-weight: 500;
@@ -360,6 +385,10 @@ ul{
             border-top: 1px solid #E2E2E2;
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
+            max-height: 80vh;
+            overflow-y: auto;
+
             .home-modal__inner--item{
                 margin-right: 64px;
                 padding-left: 24px;
@@ -375,6 +404,7 @@ ul{
             font-size: 28px;
             font-weight: 700;
             text-transform: uppercase;
+            margin-bottom: 8px;
         }
     }
     .home-modal__close{
