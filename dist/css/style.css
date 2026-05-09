@@ -73,11 +73,16 @@ h1 {
   letter-spacing: 0.1rem;
 }
 
+.page h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 h2 {
   font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 16px;
 }
 
 h3 {
@@ -349,6 +354,10 @@ ul {
 .item-content__item {
   padding-top: 34px;
   position: relative;
+}
+
+.item-content__inner:not(:last-child) {
+  margin-bottom: 32px;
 }
 
 @media (max-width: 1200px) {
@@ -857,6 +866,7 @@ ul {
     transform: rotate(270deg) translateX(50%);
   }
   .page__item .page__item--content {
+    transition: all 0s;
     position: relative;
     width: 100%;
     left: 0;
@@ -1782,6 +1792,83 @@ li[data-phone=vodafone]::before {
   }
 }
 /* end content chat block */
+/* content selector block */
+.content-selector-block {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 11px;
+  position: relative;
+}
+.content-selector-block::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: var(--dark-grey-color);
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+}
+.content-selector-block__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.content-selector-block__select {
+  position: relative;
+}
+.content-selector-block__select::after {
+  content: url('data:image/svg+xml,<svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.12204 14.6809C8.74235 15.3728 7.74841 15.3728 7.36872 14.6809L0.124604 1.48116C-0.24114 0.814731 0.241061 4.74612e-05 1.00126 4.73913e-05L15.4895 4.60589e-05C16.2497 4.59889e-05 16.7319 0.814728 16.3662 1.48116L9.12204 14.6809Z" fill="%23B5B5B5"/></svg>');
+  position: absolute;
+  right: 4px;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.content-selector-block select {
+  width: 100%;
+  font-size: 20px;
+  padding: 4px 32px 4px 4px;
+  border-radius: 4px;
+  outline: none;
+  color: var(--light-text-color);
+  border: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1450980392);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+.content-selector-block select::-ms-expand {
+  display: none;
+}
+
+/* end content selector block */
+/* content cards block */
+.item-content__cards {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+.item-content__card {
+  max-width: 300px;
+  padding-right: 14px;
+}
+.item-content__card ul {
+  max-width: 320px;
+  font-size: 18px;
+}
+.item-content__card li::marker {
+  color: var(--dark-grey-color);
+}
+.item-content__card .item-content__card--mintitle + ul > li::marker {
+  color: var(--accent-color);
+}
+
+/* end content cards block */
 /* ============ HOME =============== */
 .hero {
   margin-top: 0;
