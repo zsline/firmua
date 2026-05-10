@@ -67,4 +67,18 @@ function createList(el) {
     });
 }
 
+document.body.addEventListener('click', (e)=>{
+    const element = e.target.closest('[data-contact]');
+    const contactsModal = document.querySelector('.modal-contacts');
+    if (element) {
+        if(contactsModal){
+            contactsModal.classList.add('open');
+        }
+    } 
+    if(e.target.classList.contains('modal-contacts__close')){
+        contactsModal.classList.remove('open');
+        console.log('close');
+        
+    }
+})
 

@@ -83,6 +83,7 @@ ul{
     margin-top: 4px;
     text-align: left;
 }
+
 .wrapper{
     height: 100vh;
     overflow: hidden;
@@ -270,7 +271,26 @@ ul{
     flex-wrap: wrap;
     gap: clamp(1.5rem, calc(-1.19rem + 5.78vw), 3.5rem);
 }
-
+.main-btn{
+    
+    padding: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 1;
+    height: 44px;
+    width: auto;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 22px;
+    box-shadow: 2px 2px 4px #6a6a6a40;
+    background-color: var(--bg-color);
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover{
+        color: var(--light-text);
+    }
+}
 .page .box-item{
     display: flex;
     flex-direction: column;
@@ -343,6 +363,63 @@ ul{
 }
 /* ==================== */
 /* ======= MODALS ========= */
+.modal-contacts{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    backdrop-filter: blur(8px);
+    &.open{
+        display: flex;
+    }
+    &__wrapper{
+        position: relative;
+        background-color: var(--bg-color);
+        padding: 12px;
+        border-radius: 20px;
+        box-shadow: 0 0 4px #00000025;
+        ul{
+            list-style: none;
+            padding: 0;
+            li{
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                &:not(:last-child){
+                    margin-bottom: 12px;
+                }
+            }
+        }
+    }
+    &__chats{
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 24px;
+        a{
+            height: 75px;
+            width: 75px;
+        }
+    }
+    &__close{
+        position: absolute;
+        right: 0;
+        top: -32px;
+        color: var(--bg-color);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+    }
+}
 .home-modal{
     position: fixed;
     top: 0;
@@ -356,7 +433,7 @@ ul{
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(4px);
-
+    z-index: 999;
     .home-modal__content{
         padding: 18px;
         background-color: var(--bg-color);
@@ -1141,6 +1218,60 @@ ul{
     background: linear-gradient(0deg,#464646 50%, #FFCD92 50%);
 }
 /* end content safety block */
+/* content faq block */
+.content-faq-block{
+    .faq__item{
+        button{
+            outline: none;
+        }
+    }
+    .faq__head {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 8px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: left;
+        margin-bottom: 12px;
+    }
+    .faq__icon {
+        transition: .3s;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        &::before{
+            position: absolute;
+            content: url('data:image/svg+xml,<svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_8342_52)"><path d="M17.5 11.0637C18.1667 11.4486 18.1667 12.4108 17.5 12.7957L5.5 19.7239C4.83333 20.1088 4 19.6277 4 18.8579L4 5.00149C4 4.23169 4.83333 3.75057 5.5 4.13547L17.5 11.0637Z" fill="%23B5B5B5"/></g><defs><filter id="filter0_d_8342_52" x="0" y="0" width="22" height="23.8594" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_8342_52"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_8342_52" result="shape"/></filter></defs></svg>');
+            position: absolute;
+            height: 24px;
+            right: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .faq__body {
+        height: 0;
+        overflow: hidden;
+        transition: height .3s ease;
+    }
+    .faq__content {
+        padding-bottom: 16px;
+        padding-left: 50px;
+    }
+    .faq__item.active .faq__body {
+        max-height: 300px;
+    }
+    .faq__item.active .faq__icon {
+        transform: rotate(90deg) translate(15%, 20%);
+    }
+}
+
+/* end content faq block */
 
 /* content specialty block */
 .item-content__specialty--wrapper{
@@ -1404,7 +1535,7 @@ ul{
     .item-content__app--wrapper:has(.item-content__app--desc){
         width: 100%;
         text-align: left;
-        margin-left: 12px;
+        margin-left: 0;
         display: flex;
         flex-direction: column;
     }
@@ -1416,6 +1547,9 @@ ul{
     }
     .item-content__app h2{
         text-align: center;
+    }
+    .item-content__app--desc{
+        width: 280px;
     }
 }
 @media (max-width:486px){
@@ -1429,6 +1563,36 @@ ul{
     }
 }
 /* end content app block */
+/* content steps block */
+.item-content-steps{
+    .main-btn{
+      height: 29px;
+      border-radius: 10px;      
+    }
+    ol {
+        counter-reset: step;
+        li {
+            list-style: none;
+            counter-increment: step;
+            &:not(:last-child){
+                margin-bottom: 16px;
+            }
+            &::before {
+                content: 'Крок ' counter(step) '. ';
+                font-weight: 700;
+            }
+        }
+    }
+    &__links{
+        margin-top: 16px;
+        gap: 16px;
+
+    }
+    form{
+        margin-top: 16px;
+    }
+}
+/* end content steps block */
 /* content contacts block */
 .item-content__wrapper{
     justify-content: center;
@@ -1750,16 +1914,67 @@ li[data-phone="vodafone"]::before{
     &__cards{
         display: flex;
         justify-content: center;
-        align-items: start;
+        align-items: stretch;
         flex-wrap: wrap;
         gap: 48px;
+        margin-top: 18px;
     }
     &__card{
         max-width: 300px;
         padding-right: 14px;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        height: auto;
+        &:not(:last-child)::after{
+            position: absolute;
+            content: '';
+            width: 1px;
+            height: 100%;
+            background-color: var(--dark-grey-color);
+            top: 0;
+            bottom: 0;
+            right: 0;
+            opacity: 0.3;
+        }
+        &--title{
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        &--mintitle{
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        &--price{
+            text-align: center;
+            margin-bottom: 32px;
+            margin-top: auto;
+            strong{
+                font-size: 24px;
+                font-weight: 700;
+            }
+        }
+        &--links{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
         ul{
             max-width: 320px;
             font-size: 18px;
+            margin-bottom: 16px;
         }
         li{
             &::marker{
@@ -1772,6 +1987,15 @@ li[data-phone="vodafone"]::before{
             }
         }
     }
+}
+@media (max-width: 729px) {
+    .item-content{
+    &__card{
+        &:not(:last-child)::after{
+            display: none;
+        }
+    }
+}
 }
 /* end content cards block */
 

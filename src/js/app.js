@@ -32,6 +32,33 @@ if(openMenu && menuMobile && closeMenu){
 }
 
 
+const input = document.querySelector('#file');
+const fileName = document.querySelector('.file-name');
+if(input){
+    input.addEventListener('change', () => {
+        fileName.textContent = input.files[0]?.name || 'Файл не выбран';
+    });
+}
+
+// аккордеон
+const faqItems = document.querySelectorAll('.faq__item');
+faqItems.forEach(item => {
+    const button = item.querySelector('.faq__head');
+    const body = item.querySelector('.faq__body');
+    button.addEventListener('click', () => {
+        const isActive = item.classList.contains('active');
+        faqItems.forEach(el => {
+            el.classList.remove('active');
+            const content = el.querySelector('.faq__body');
+            content.style.height = '0px';
+        });
+        if (!isActive) {
+            item.classList.add('active');
+            body.style.height = body.scrollHeight + 'px';
+        }
+    });
+});
+
 
 
 
